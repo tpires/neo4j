@@ -1,4 +1,4 @@
-## Neo4J dependency: oracle-jdk7
+## Neo4J dependency: dockerfile/java
 ## get java from trusted build
 from dockerfile/java
 maintainer Tiago Pires, tiago-a-pires@ptinovacao.pt
