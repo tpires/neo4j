@@ -1,6 +1,6 @@
 ## Neo4J dependency: oracle-jdk7
-## get oracle-jdk7 from existing repo
-from hrafique/oracle-jdk7
+## get java from trusted build
+from dockerfile/java
 maintainer Tiago Pires, tiago-a-pires@ptinovacao.pt
 
 ## install neo4j according to http://www.neo4j.org/download/linux
