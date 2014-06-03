@@ -23,5 +23,7 @@ run apt-get clean
 run sed -i "s|#node_auto_indexing|node_auto_indexing|g" /var/lib/neo4j/conf/neo4j.properties
 run sed -i "s|#node_keys_indexable|node_keys_indexable|g" /var/lib/neo4j/conf/neo4j.properties
 
+workdir /
+
 ## entrypoint
 cmd ["/bin/bash", "-c", "/launch.sh"]
