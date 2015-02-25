@@ -23,10 +23,9 @@ run chmod +x /launch.sh && \
     apt-get clean && \
     sed -i "s|#node_auto_indexing|node_auto_indexing|g" /var/lib/neo4j/conf/neo4j.properties && \
     sed -i "s|#node_keys_indexable|node_keys_indexable|g" /var/lib/neo4j/conf/neo4j.properties && \ 
-    sh -c 'printf "wrapper.java.initmemory=4096\nwrapper.java.maxmemory=4096\n" >> /var/lib/neo4j/conf/neo4j-wrapper.conf' && \
-    sh -c 'printf "neostore.nodestore.db.mapped_memory=50M\nneostore.relationshipstore.db.mapped_memory=500M\nneostore.propertystore.db.mapped_memory=100M\nneostore.propertystore.db.strings.mapped_memory=100M\nneostore.propertystore.db.arrays.mapped_memory=0M" >> /var/lib/neo4j/conf/neo4j.properties'
-
-    echo "remote_shell_host=0.0.0.0" >> /var/lib/neo4j/conf/neo4j.properties
+    echo "remote_shell_host=0.0.0.0" >> /var/lib/neo4j/conf/neo4j.properties && \
+    printf "wrapper.java.initmemory=4096\nwrapper.java.maxmemory=4096\n" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
+    printf "neostore.nodestore.db.mapped_memory=50M\nneostore.relationshipstore.db.mapped_memory=500M\nneostore.propertystore.db.mapped_memory=100M\nneostore.propertystore.db.strings.mapped_memory=100M\nneostore.propertystore.db.arrays.mapped_memory=0M" >> /var/lib/neo4j/conf/neo4j.properties
 
 # expose REST and shell server ports
 expose 7474
