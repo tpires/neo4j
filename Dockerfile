@@ -1,7 +1,8 @@
 ## Neo4J dependency: java
 ## get java from official repo
 from java:latest
-maintainer Tiago Pires, tandrepires@gmail.com
+## forked from the image by Tiago Pires
+## https://registry.hub.docker.com/u/tpires/neo4j/
 maintainer Ahmet Kizilay, ahmet.kizilay@gmail.com
 
 ## install neo4j according to http://www.neo4j.org/download/linux
