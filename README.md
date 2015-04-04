@@ -23,3 +23,6 @@ You can add authorization credentials or disable authorization by passing `NEO4J
 * To bypass authentication:
 
   `docker run -i -t -d -e NEO4J_AUTH=none --name neo4j --cap-add=SYS_RESOURCE -p 7474:7474 ahmetkizilay/neo4j`
+
+
+Image forked from [here](https://registry.hub.docker.com/u/tpires/neo4j/)
