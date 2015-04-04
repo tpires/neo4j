@@ -2,6 +2,7 @@
 ## get java from official repo
 from java:latest
 maintainer Tiago Pires, tandrepires@gmail.com
+maintainer Ahmet Kizilay, ahmet.kizilay@gmail.com
 
 ## install neo4j according to http://www.neo4j.org/download/linux
 # Import neo4j signing key
@@ -10,7 +11,7 @@ maintainer Tiago Pires, tandrepires@gmail.com
 
 run wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add - && \
     echo 'deb http://debian.neo4j.org/repo stable/' > /etc/apt/sources.list.d/neo4j.list && \
-    apt-get update ; apt-get install neo4j -y
+    apt-get update ; apt-get install neo4j -y ; apt-get install bsdmainutils -y
 
 ## add launcher and set execute property
 ## clean sources
@@ -19,10 +20,11 @@ run wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add - && \
 # enable shell server on all network interfaces
 
 add launch.sh /
-run chmod +x /launch.sh && \
+add build_auth_string.sh /
+run chmod +x /launch.sh && chmod +x /launch.sh && \
     apt-get clean && \
     sed -i "s|#node_auto_indexing|node_auto_indexing|g" /var/lib/neo4j/conf/neo4j.properties && \
-    sed -i "s|#node_keys_indexable|node_keys_indexable|g" /var/lib/neo4j/conf/neo4j.properties && \ 
+    sed -i "s|#node_keys_indexable|node_keys_indexable|g" /var/lib/neo4j/conf/neo4j.properties && \
     echo "remote_shell_host=0.0.0.0" >> /var/lib/neo4j/conf/neo4j.properties
 
 # expose REST and shell server ports
