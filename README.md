@@ -29,3 +29,9 @@ You can add authorization credentials or disable authorization by passing `NEO4J
 * To bypass authentication:
 
   `docker run -i -t -d -e NEO4J_AUTH=none --name neo4j --cap-add=SYS_RESOURCE -p 7474:7474 tpires/neo4j`
+
+#### Volumes 
+The neo4j data is stored in "/var/lib/neo4j/data".  
+*  To use a volume to store the database:
+   
+   `docker run -i -t -d --name neo4j --cap-add=SYS_RESOURCE -v /var/lib/neo4j/data -p 7474:7474 tpires/neo4j`
