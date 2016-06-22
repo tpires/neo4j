@@ -15,6 +15,11 @@ fi
 
 sed -i "s|#org.neo4j.server.webserver.address=0.0.0.0|org.neo4j.server.webserver.address=$HOSTNAME|g" $NEO4J_HOME/conf/neo4j-server.properties
 
+if [ -n "$NEO4J_PORT" ]; then
+  echo "changing the port to $NEO4J_PORT"
+  sed -i "s|org.neo4j.server.webserver.port=7474|org.neo4j.server.webserver.address=$NEO4J_PORT|g" $NEO4J_HOME/conf/neo4j-server.properties
+fi
+
 # doing this conditionally in case there is already a limit higher than what
 # we're setting here. neo4j recommends at least 40000.
 #
@@ -25,4 +30,3 @@ if [ "$limit" -lt 65536 ]; then
 fi
 
 exec .$NEO4J_HOME/bin/neo4j console
-
